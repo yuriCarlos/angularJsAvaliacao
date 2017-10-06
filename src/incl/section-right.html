@@ -1,0 +1,152 @@
+<!-- PAINEL DEFAULT -->
+<div class="row" ng-show="actionPanel == 'init'">
+   <div id="" class="col-md-12">
+      <div class="card">
+         <div class="card-header">
+            Painel de ações
+         </div>
+         <div class="card-body">
+            <h4 class="card-title">Escolha uma das ações para ativar esse painel.</h4>
+            <p class="card-text"></p>
+            <table class="table ">
+               <tbody>
+                  <tr>
+                     <td>Para incluir um novo registo clique no botão adcionar localizado na parte inferior da pagina</td>
+                     <td><img src="assets/images/add.png" alt=""></td>
+                  </tr>
+                  <tr>
+                     <td>Para editar ou excluir um registro utilize os botões de ação presente na tabela ao lado</td>
+                     <td><img src="assets/images/edit-trash.png" alt=""></td>
+                  </tr>
+               </tbody>
+            </table>
+            <br>
+            <hr>
+            <p>Caso prefira você pode carregar alguns registros de exemplo</p>
+
+            <button class="btn btn-block btn-info" ng-click="loadRegisterDemo()" type="button">
+            Carregar registro de exemplo
+            </button>
+
+
+         </div>
+      </div>
+   </div>
+   <!-- ### Final da div  ### -->
+</div>
+<!-- / PAINEL DEFAULT -->
+<!-- PAINEL ADCIONA REGISTRO -->
+<div class="row" ng-show="actionPanel == 'create'">
+   <div id="" class="col-md-12">
+      <div class="card">
+         <div class="card-header">
+            Preencha os campos abaixo para adcionar novo registro. {{ actionPanel }}
+
+         </div>
+         <div class="card-body">
+            <h4 class="card-title"></h4>
+            <p class="card-text"></p>
+            <form class="modal-create-add-user" name="frmCreateReg" onsubmit="return false;">
+               <div class="form-group">
+                  <div class="form-row">
+                     <div class="input-group col">
+                        <div class="input-group-addon"><i class="fa fa-address-card" aria-hidden="true"></i></div>
+                        <input type="text" class="form-control all_fields" ng-model="reg.name"  placeholder="Nome completo" ng-required='true'>
+                     </div>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <div class="form-row">
+                     <div class="input-group col">
+                        <div class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                        <input type="email" class="form-control all_fields" ng-model="reg.email"  placeholder="E-mail"  ng-required='true'>
+                     </div>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <div class="form-row">
+                     <select id="slect-state" name="slect-state" class="select2 form-control all_fields" ng-model="reg.state"  ng-options="nemeState.name as nemeState.name for nemeState in listState"  ng-required='true'>
+                        <option value="" disabled>Selecione um estado</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="form-group float-right">
+                  <div class="form-row">
+                    <button class="btn btn-secondary" ng-click="returnPanel()" type="button">
+                      Cancelar
+                    </button>&nbsp;
+                     <input type="submit" class="btn btn-info " value="Salvar registro" ng-disabled="frmCreateReg.$invalid" ng-click="addRegister(reg)">
+                  </div>
+               </div>
+
+            </form>
+
+
+         </div>
+      </div>
+   </div>
+   <!-- ### Final da div  ### -->
+</div>
+<!-- / PAINEL ADCIONA REGISTRO -->
+
+<!-- PAINEL EDITAR REGISTRO -->
+<div class="row" ng-show="actionPanel == 'edit'">
+   <div id="" class="col-md-12">
+      <div class="card">
+         <div class="card-header">
+            Editando registro.
+
+         </div>
+         <div class="card-body">
+            <h4 class="card-title"></h4>
+            <p class="card-text"></p>
+            <form class="modal-create-add-user" name="frmEditReg" onsubmit="return false;">
+              <input type="hidden" ng-model="editIndexReg">
+               <div class="form-group">
+                  <div class="form-row">
+                     <div class="input-group col">
+                        <div class="input-group-addon"><i class="fa fa-address-card" aria-hidden="true"></i></div>
+                        <input type="text" class="form-control all_fields" ng-model="editReg.name"  placeholder="Nome completo" ng-required='true'>
+                     </div>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <div class="form-row">
+                     <div class="input-group col">
+                        <div class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                        <input type="email" class="form-control all_fields" ng-model="editReg.email"  placeholder="E-mail"  ng-required='true'>
+                     </div>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <div class="form-row">
+                     <select id="slect-state" name="slect-state" class="select2 form-control all_fields" ng-model="editReg.state" ng-options="nemeState.name as nemeState.name for nemeState in listState"  ng-required='true'>
+                        <option value="" disabled>Selecione um estado</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="form-group float-right">
+                  <div class="form-row">
+                    <button class="btn btn-secondary" ng-click="returnPanel()" type="button">
+                      Cancelar
+                    </button>&nbsp;
+                     <input type="submit" class="btn btn-info " value="Alterar registro" ng-disabled="frmEditReg.$invalid" ng-click="alterRegister(editReg, editIndexReg)">
+                  </div>
+               </div>
+
+            </form>
+
+
+         </div>
+      </div>
+   </div>
+   <!-- ### Final da div  ### -->
+</div>
+<!-- / PAINEL EDITAR REGISTRO -->
+
+
+
+
+<button class="fixed-button wobble rounded-circle align-middle" ng-click="showAddRegister()" type="button" ng-show="actionPanel == 'edit' || actionPanel == 'init' ">
+<i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+</button>
