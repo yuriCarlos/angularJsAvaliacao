@@ -1,0 +1,68 @@
+<div class="row">
+   <article id="tbl-lista " class="col-md-12">
+      <div class="card">
+         <div class="card-header">
+            <h2>Lista de contatos</h2>
+         </div>
+         <div class="card-body">
+            <form class="form-group clearfix">
+               <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></div>
+                  <input type="text" class="form-control" id="search-reg" placeholder="Quem você deseja encontrar?" ng-model="searchFilter">
+               </div>
+            </form>
+            <table class="table table-hover">
+               <thead>
+                  <tr>
+                     <th class="hover_order" ng-click="orderNow('name')">Nome completo</th>
+                     <th class="hover_order" ng-click="orderNow('email')">Email</th>
+                     <th class="hover_order" ng-click="orderNow('state')">Estado</th>
+                     <th width="160" class="text-center">Ações</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr ng-repeat="contact in listContact | filter:{name: searchFilter} | orderBy:sortByfield:orderDirection">
+                     <td>{{ contact.name | uppercase }}</td>
+                     <td>{{ contact.email | uppercase }}</td>
+                     <td>{{ contact.state | uppercase }}</td>
+                     <td class="text-center">
+                        <div class="btn-group" role="group" aria-label="Ações user">
+                           <button type="button" class="btn btn-info text-center" ng-click="editRegister($index)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                           <button type="button" class="btn btn-secondary text-center" ng-click="deleteRegister(contact)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        </div>
+                     </td>
+                  </tr>
+                  <tr ng-if="listContact[0].name == undefined">
+                     <td colspan="4" class="text-center">
+                        <h5>Nenhum registro encontrado</h5>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+            <div ng-bind-html="alertApp | unsafe"></div>
+         </div>
+      </div>
+   </article>
+   <!-- ### Final da div tbl-cadastros ### --> 
+</div>
+<!-- /.row final linha -->
+<!-- Modal Deletar Registro -->
+<div class="modal fade" id="modalDeleteReg" tabindex="-1" role="dialog" aria-labelledby="modalDeleteRegLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="modalDeleteRegLabel">Deletar registro</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            Tem certeza que deseja excluir {{ delRegName }}? 
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" ng-click="confirmDeleteRegister(deleteItem)">SIM</button>
+         </div>
+      </div>
+   </div>
+</div>
