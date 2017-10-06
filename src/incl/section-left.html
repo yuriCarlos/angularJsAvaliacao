@@ -21,7 +21,7 @@
                   </tr>
                </thead>
                <tbody>
-                  <tr ng-repeat="contact in listContact | filter:{name: searchFilter} | orderBy:sortByfield:orderDirection">
+                  <tr ng-if="listContact[0].name != undefined" ng-repeat="contact in listContact | filter:{name: searchFilter} | orderBy:sortByfield:orderDirection">
                      <td>{{ contact.name | uppercase }}</td>
                      <td>{{ contact.email | uppercase }}</td>
                      <td>{{ contact.state | uppercase }}</td>

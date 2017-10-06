@@ -11,9 +11,15 @@ app.controller('listRegisterController', function($scope, $http) {
         email: undefined,
         state: undefined
     };
+
+    $scope.listContact =  [
+        {name: undefined, email: undefined, state: undefined},
+    ];
+
+
     $scope.editIndexReg = undefined;
     $scope.sortByfield = 'name';
-    $scope.listContac = undefined;
+    
     $scope.listState = undefined;
 
     $scope.actionPanel = 'init';
@@ -26,10 +32,7 @@ app.controller('listRegisterController', function($scope, $http) {
         $scope.listState = data.listStates;
     });
 
-    // Array com o registro inicial
-
-
-
+   
     // Funções da aplicação
 
     var _reset = function() {
@@ -66,11 +69,21 @@ app.controller('listRegisterController', function($scope, $http) {
     }
 
     $scope.addRegister = function(reg) {
+
+    
+    if($scope.listContact[0].name == undefined){
+        $scope.listContact[0].name = reg.name;
+        $scope.listContact[0].email = reg.email;
+        $scope.listContact[0].state = reg.state;
+
+    }else{
         $scope.listContact.push(angular.copy(reg));
-        _reset();
+    }
+        
+        
         $scope.alertApp = '<div id="alert-app" class="col-md-12"> <div class="alert alert-success alert-dismissible fade show" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> <strong>UFA! conseguimos</strong> Registro adcionado com sucesso. </div></div>'
 
-
+        _reset();
     }
 
     $scope.editRegister = function(index_reg) {
