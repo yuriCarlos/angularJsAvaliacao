@@ -28,7 +28,7 @@ app.controller('listRegisterController', function($scope, $http) {
     // Configurações da Aplicação
     $scope.appTitle = 'AngularJs - Avaliação';
     // Array com a lista de estados
-    $http.get('../../../data/states.json').success(function(data) {
+    $http.get('data/states.json').success(function(data) {
         $scope.listState = data.listStates;
     });
 
@@ -54,7 +54,7 @@ app.controller('listRegisterController', function($scope, $http) {
 
 
     $scope.loadRegisterDemo = function() {
-        $http.get('../../../data/register.json').success(function(data) {
+        $http.get('data/register.json').success(function(data) {
             $scope.listContact = data.listContact;
         });
     }
