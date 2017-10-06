@@ -23,12 +23,9 @@
             <br>
             <hr>
             <p>Caso prefira você pode carregar alguns registros de exemplo</p>
-
             <button class="btn btn-block btn-info" ng-click="loadRegisterDemo()" type="button">
             Carregar registro de exemplo
             </button>
-
-
          </div>
       </div>
    </div>
@@ -41,7 +38,6 @@
       <div class="card">
          <div class="card-header">
             Preencha os campos abaixo para adcionar novo registro. {{ actionPanel }}
-
          </div>
          <div class="card-body">
             <h4 class="card-title"></h4>
@@ -72,36 +68,31 @@
                </div>
                <div class="form-group float-right">
                   <div class="form-row">
-                    <button class="btn btn-secondary" ng-click="returnPanel()" type="button">
-                      Cancelar
-                    </button>&nbsp;
+                     <button class="btn btn-secondary" ng-click="returnPanel()" type="button">
+                     Cancelar
+                     </button>&nbsp;
                      <input type="submit" class="btn btn-info " value="Salvar registro" ng-disabled="frmCreateReg.$invalid" ng-click="addRegister(reg)">
                   </div>
                </div>
-
             </form>
-
-
          </div>
       </div>
    </div>
    <!-- ### Final da div  ### -->
 </div>
 <!-- / PAINEL ADCIONA REGISTRO -->
-
 <!-- PAINEL EDITAR REGISTRO -->
 <div class="row" ng-show="actionPanel == 'edit'">
    <div id="" class="col-md-12">
       <div class="card">
          <div class="card-header">
             Editando registro.
-
          </div>
          <div class="card-body">
             <h4 class="card-title"></h4>
             <p class="card-text"></p>
             <form class="modal-create-add-user" name="frmEditReg" onsubmit="return false;">
-              <input type="hidden" ng-model="editIndexReg">
+               <input type="hidden" ng-model="editIndexReg">
                <div class="form-group">
                   <div class="form-row">
                      <div class="input-group col">
@@ -127,26 +118,19 @@
                </div>
                <div class="form-group float-right">
                   <div class="form-row">
-                    <button class="btn btn-secondary" ng-click="returnPanel()" type="button">
-                      Cancelar
-                    </button>&nbsp;
+                     <button class="btn btn-secondary" ng-click="returnPanel()" type="button">
+                     Cancelar
+                     </button>&nbsp;
                      <input type="submit" class="btn btn-info " value="Alterar registro" ng-disabled="frmEditReg.$invalid" ng-click="alterRegister(editReg, editIndexReg)">
                   </div>
                </div>
-
             </form>
-
-
          </div>
       </div>
    </div>
    <!-- ### Final da div  ### -->
 </div>
 <!-- / PAINEL EDITAR REGISTRO -->
-
-
-
-
 <button class="fixed-button wobble rounded-circle align-middle" ng-click="showAddRegister()" type="button" ng-show="actionPanel == 'edit' || actionPanel == 'init' ">
 <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
 </button>
