@@ -1,0 +1,11 @@
+{
+  "name": "lista-app",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "repository": "",
+  "author": "Yuri Carlos",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}

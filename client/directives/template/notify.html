@@ -1,0 +1,6 @@
+<div class="notify-dash">
+	<div  ng-repeat="message in messages track by $index" id='notify-id-{{$index}}' class="wrap-text-l alert alert-{{message.type}}">
+		<button class="close" ng-click='closeNotification($index)'>X</button>
+	  	<strong>{{message.title}}</strong> {{message.body}}
+	</div>
+</div>

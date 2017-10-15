@@ -1,0 +1,48 @@
+<div>
+	<div class="row">
+		<div class="col-sm-7">
+			<h1>{{operationName}}</h1>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<form>
+			<div class="form-group">
+				<div class="col-sm-6">
+					<label>Nome</label>
+					<input type="text" class="form-control" ng-model='model.name'/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-6">
+					<label>Estado</label>
+					<div class="form-group">
+						<div class="btn-group">
+						    <button type="button" class="form-control btn btn-default dropdown-toggle" data-toggle="dropdown">
+						        {{selectedStateLabel}} <span class="caret"></span>
+						    </button>
+						    <ul class="dropdown-menu" role="menu">
+						        <li class='clickable' ng-repeat='state in states' ng-click='selectState(state)'>
+						        	<a> {{state.acronym}} </a>
+						        </li>
+						    </ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-6">
+					<label>E-mail</label>
+					<input type="email" class="form-control" ng-model='model.email'/>
+				</div>
+			</div>
+		</form>
+	</div>
+	<hr />
+	<div class="row">
+		<div class="col-sm-4">
+			<a href='#/' class="btn btn-default"><strong>Voltar</strong></a>
+			<button class="btn btn-success" ng-click='save()'><strong>Salvar</strong></button>
+		</div>
+	</div>
+</div>

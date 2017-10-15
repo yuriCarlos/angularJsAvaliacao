@@ -1,0 +1,22 @@
+.main-container{
+	margin-top: 60px;
+}
+
+.notify-dash{
+	z-index: 9999;
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	height: auto;
+	min-width: 200px;
+	width: 30%;
+	/*background-color: #F00;*/
+}
+
+.wrap-text-l{
+	word-wrap: break-word;
+}
+
+.clickable{
+	cursor: pointer;
+}
